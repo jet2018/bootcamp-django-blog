@@ -1,7 +1,15 @@
-Blog
+Set up:
 
-Posts
-Comments
-Likes
-Bookmarks
-Authors
+ - Intall the dependencies
+	
+```sh
+pip install -r requirements.txt
+```
+
+Run migrations
+
+```sh
+python manage.py runserver
+```
+
+ 
