@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+{#    <form method="post" class="border rounded p-4" class="" action="{% url 'create' %}">#}
+{#        <h4 class="text-primary"> Create your artice here</h4>#}
+{#        {% csrf_token %}#}
+{#        <div class="mb-3">#}
+{#          <label for="title" class="form-label">Title</label>#}
+{#          <input type="text" class="form-control" name="title" id="title" placeholder="My awesome article">#}
+{#        </div>#}
+{#        <div class="mb-3">#}
+{#          <label for="content" class="form-label">Post Body</label>#}
+{#          <textarea class="form-control" id="content" name="content" rows="3"></textarea>#}
+{#        </div>#}
+{#        <input type="submit" class="btn btn-primary" value="Save">#}
+{#        <input type="reset" class="btn btn-secondary" value="Cancel">#}
+{#    </form>#}
+    {% include 'commons/post_form.html' %}
+
+    <div class="my-1">
+        <h4 class="mt-5">All Articles</h4>
+        <div class="d-flex flex-wrap gap-3">
+        {% for post in posts %}
+            <div class="">
+                {% include 'commons/post_card.html' with post=post %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
