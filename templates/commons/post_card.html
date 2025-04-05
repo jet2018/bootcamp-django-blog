@@ -1,0 +1,15 @@
+{% load humanize %}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{ post.author|capfirst}}, {{ post.created_at|naturalday }} </h6>
+    <p class="card-text">{{ post.content | truncatechars:36 }}</p>
+    <a href="{% url 'delete' post.id %}" class="card-link">Delete</a>
+    <a href="{% url 'update' post.id %}" class="card-link">Edit</a>
+    <a href="{% url 'details' post.id %}" class="card-link">View</a>
+  </div>
+</div>
+
+<p>
+</p>
