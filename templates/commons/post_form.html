@@ -10,7 +10,7 @@
     </div>
     <div class="mb-3">
       <label for="content" class="form-label">Post Body</label>
-      <textarea class="form-control" value="{% if post %} {{ post.content }} {% endif %}" id="content" name="content" rows="3"></textarea>
+      <textarea class="form-control" id="content" name="content" rows="3">{% if post %} {{ post.content }} {% endif %}</textarea>
     </div>
     <input type="submit" class="btn btn-primary" value="Save">
     {% if post %}
