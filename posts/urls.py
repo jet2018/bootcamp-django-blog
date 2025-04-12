@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import index, detail, delete, create, update
 
+app_name = 'posts'
+
 urlpatterns = [
     path('', index, name='index'),
     path('new', create, name='create'),

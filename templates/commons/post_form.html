@@ -1,21 +1,23 @@
-<form method="post" class="border rounded p-4" class="" action="
-{% if post %} {% url 'update' post.id %} {% else %} {% url 'create' %} {% endif %}">
-    <h4 class="text-primary">
-        {% if post %} Edit {{ post.title }} {% else %} Create Article {% endif %}
-    </h4>
-    {% csrf_token %}
-    <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" value="{% if post %} {{ post.title }} {% endif %}" name="title" id="title" placeholder="My awesome article">
-    </div>
-    <div class="mb-3">
-      <label for="content" class="form-label">Post Body</label>
-      <textarea class="form-control" id="content" name="content" rows="3">{% if post %} {{ post.content }} {% endif %}</textarea>
-    </div>
-    <input type="submit" class="btn btn-primary" value="Save">
-    {% if post %}
-        <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
-    {% else %}
-        <input type="reset" class="btn btn-secondary" value="Cancel">
-    {% endif %}
-</form>
+{% if user.is_authenticated %}
+    <form method="post" class="border rounded p-4" class="" action="
+    {% if post %} {% url 'posts:update' post.id %} {% else %} {% url 'posts:create' %} {% endif %}">
+        <h4 class="text-primary">
+            {% if post %} Edit {{ post.title }} {% else %} Create Article {% endif %}
+        </h4>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" value="{% if post %} {{ post.title }} {% endif %}" name="title" id="title" placeholder="My awesome article">
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Post Body</label>
+          <textarea class="form-control" id="content" name="content" rows="3">{% if post %} {{ post.content }} {% endif %}</textarea>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save">
+        {% if post %}
+            <a href="{% url 'posts:index' %}" class="btn btn-secondary">Cancel</a>
+        {% else %}
+            <input type="reset" class="btn btn-secondary" value="Cancel">
+        {% endif %}
+    </form>
+{% endif %}

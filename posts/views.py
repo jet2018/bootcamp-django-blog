@@ -3,15 +3,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from authors.models import Author
 from posts.models import Post
 
-# Create your views here.
-
-"""
-    MVT === MVC
-    M == M
-    V == C
-    T == V
-"""
-
 
 def index(request):
     posts = Post.objects.all()
@@ -34,7 +25,7 @@ def detail(request, post_id):
 
 def delete(request, post_id):
     Post.objects.get(id=post_id).delete()
-    return redirect('index')
+    return redirect('posts:index')
 
 
 def create(request):
@@ -46,7 +37,7 @@ def create(request):
         content=content,
         author=author,
     )
-    return redirect('index')
+    return redirect('posts:index')
 
 
 def update(request, post_id):
@@ -55,7 +46,7 @@ def update(request, post_id):
         post.title = request.POST.get('title')
         post.content = request.POST.get('content')
         post.save()
-        return redirect('index')
+        return redirect('posts:index')
     return render(request, template_name='update.html', context={
         'title': f'Update Post {post_id}',
         'content': post.content,
