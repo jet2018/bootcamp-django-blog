@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for author in authors %}
+            {# Each "contact" is a Contact model object. #}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ author.user.first_name }}</td>
+                <td>{{ author.user.last_name }}</td>
+                <td>@{{ author.user.username }}</td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+
+{% include 'commons/paginator.html' %}
+{% endblock content %}

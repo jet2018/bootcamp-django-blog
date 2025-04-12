@@ -1,27 +1,3 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>{{ title }}</title>#}
-{#</head>#}
-{#<body>#}
-{#    <h1></h1>#}
-{#    <p>{{ content }}</p>#}
-{#    <form method="post" action="{% url 'update' post.id %}">#}
-{#        {% csrf_token %}#}
-{#        <label>#}
-{#            <input type="text" name="title" value="{{ post.title}}" placeholder="Title">#}
-{#        </label>#}
-{#        <label>#}
-{#            <input type="text" name="content" value="{{ post.content }}" placeholder="Content">#}
-{#        </label>#}
-{#        <input type="submit" value="Edit">#}
-{#        <a href="{% url 'index' %}" >Cancel </a>#}
-{#    </form>#}
-{##}
-{#</body>#}
-{#</html>#}
-
 {% extends 'base.html' %}
 
 {% block title %}

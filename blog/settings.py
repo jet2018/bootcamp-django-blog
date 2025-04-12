@@ -135,3 +135,16 @@ UNFOLD = {
     "SITE_HEADER": "Dev.to",
     "SITE_SUBHEADER":  "For Admins of dev.to",
 }
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+    messages.INFO: "info",
+    messages.SUCCESS: "success",
+    messages.WARNING: "warning",
+}
+
+
+LOGIN_URL='/users/login'

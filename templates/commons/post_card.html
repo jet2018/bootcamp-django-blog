@@ -5,9 +5,12 @@
     <h5 class="card-title">{{ post.title }}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{ post.author|capfirst}}, {{ post.created_at|naturalday }} </h6>
     <p class="card-text">{{ post.content | truncatechars:36 }}</p>
-    <a href="{% url 'delete' post.id %}" class="card-link">Delete</a>
-    <a href="{% url 'update' post.id %}" class="card-link">Edit</a>
-    <a href="{% url 'details' post.id %}" class="card-link">View</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'posts:delete' post.id %}" class="card-link">Delete</a>
+        <a href="{% url 'posts:update' post.id %}" class="card-link">Edit</a>
+      {% endif %}
+
+      <a href="{% url 'posts:details' post.id %}" class="card-link">View</a>
   </div>
 </div>
 
