@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'posts',
     'authors',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,7 @@ MESSAGE_TAGS = {
 
 
 LOGIN_URL='/users/login'
+
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
