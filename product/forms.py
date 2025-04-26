@@ -3,11 +3,6 @@ from django.forms import ModelForm, TextInput, NumberInput, Textarea
 
 from product.models import Product
 
-
-class TextArea:
-    pass
-
-
 class ProductModelForm(ModelForm):
 
     class Meta:
