@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+ {% if product.image %}
+    <img style="height: 200px; " src="{{ product.image.url }}" class="card-img-top" alt="...">
+ {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">{{ product.description }}</p>
+    <a href="{% url 'products:details' product.id %}" class="btn btn-info">Details</a>
+    <a href="{% url 'products:update_product' product.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'products:delete_product' product.id %}" class="btn btn-danger">Delete</a>
+  </div>
+</div>

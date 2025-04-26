@@ -2,4 +2,9 @@
 
  {% block content %}
      <h1>Products</h1>
+     {% for product in products %}
+         <div class="col-sm-12 d-flex flex-wrap gap-2">
+            {% include 'commons/product_card.html' with product=product %}
+         </div>
+     {% endfor %}
  {% endblock content %}

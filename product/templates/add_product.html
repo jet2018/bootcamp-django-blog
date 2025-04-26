@@ -4,7 +4,15 @@
      <h1>Add Product</h1>
      <form method="post" enctype="multipart/form-data">
      {% csrf_token %}
-     {{ form.as_p }}
+         <div class="row">
+             <div class="col-6 my-2">{{ form.name }}</div>
+             <p class="text-danger">{{ form.errors.name }}</p>
+             <div class="col-6 my-2">{{ form.price }}</div>
+             <p class="text-sm text-danger">{{ form.errors.price }}</p>
+             <div class="col-12 my-2"> {{ form.description }}</div>
+             <p class="text-sm text-danger" >{{ form.errors.description }}</p>
+             <div class="col-12 my-2">{{ form.image }}</div>
+         </div>
      <button type="submit" class="btn btn-primary">Save</button>
      </form>
  {% endblock content %}
